@@ -1,6 +1,6 @@
 ﻿import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { stationAPI, userAPI } from "../api/apiService";
 import "react-datepicker/dist/react-datepicker.css";
@@ -614,8 +614,8 @@ const AdminDashboard = () => {
       console.error(err);
       toast.error(
         err?.response?.data?.message ??
-          err.message ??
-          "Failed to update station",
+        err.message ??
+        "Failed to update station",
       );
     }
   };
@@ -775,8 +775,8 @@ const AdminDashboard = () => {
         onChangePassword={handleChangePassword}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
+        <div className="mb-4 flex flex-col md:flex-row md:items-center gap-3 justify-between">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
               Safety Dashboard
@@ -784,6 +784,18 @@ const AdminDashboard = () => {
             <p className="text-gray-600 mt-1">
               Monitor and manage all stations and incidents
             </p>
+          </div>
+          <div>
+            <Link
+              to={"/public-estop"}
+              className="flex flex-col items-center justify-center w-20 h-20 rounded-full bg-red-600 text-white 
+              font-semibold text-sm shadow-lg transition-all duration-150 ease-in-out hover:bg-red-700 active:scale-90 
+              active:shadow-inner focus:outline-none focus:ring-4 focus:ring-red-300"
+            >
+              <span>E-STOP</span>
+              <span>Button</span>
+
+            </Link>
           </div>
         </div>
 
